@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -57,8 +56,8 @@ public class Board {
 
         // Pawns
         for (int i = 0; i < this.board.length; i++) {
-            placePiece(new Pawn(), 8 + i);
-            placePiece(new Pawn(), changeCord("g1") + i);
+            placePiece(new Pawn(8 + i), 8 + i);
+            placePiece(new Pawn(changeCord("g1") + i), changeCord("g1") + i);
         }
 
         // Rooks
@@ -88,4 +87,25 @@ public class Board {
         placePiece(new King(), changeCord("h5"));
     }
 
+    public static String changeCordBack(int cord) {
+        int alpha = cord / 8;
+        int num = cord % 8;
+        Map<Integer, String> x = new HashMap<Integer, String>();
+        x.put(0, "a");
+        x.put(1, "b");
+        x.put(2, "c");
+        x.put(3, "d");
+        x.put(4, "e");
+        x.put(5, "f");
+        x.put(6, "g");
+        x.put(7, "h");
+        if (cord < 0 || cord > 63) {
+            throw new IllegalArgumentException();
+        }
+        return x.get(alpha) + num;
+    }
+
+    public Piece getLocation(Piece p) {
+        return this.board[0].indexOf()
+    }
 }

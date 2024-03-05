@@ -14,7 +14,4 @@ public class Piece {
         this.alive = true;
     }
 
-    public String[] possibleMoves() {
-        return null;
-    }
 }
